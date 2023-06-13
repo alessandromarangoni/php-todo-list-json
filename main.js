@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             class:'text-white',
+            done:'non fatto',
             index:null,
             aggiungi:"",
             title: 'To Do List!',
@@ -25,13 +26,16 @@ createApp({
         },
         // aggiunge un elemento alla lista
         addTask() {
-            const data = { aggiungi : this.aggiungi };
+            const data = {aggiungi: {
+                            name : this.aggiungi,
+                            done : this.done}};
             this.sendTask(data);
         },
         // gestisce la chiamata post
         sendTask(data){
             axios.post(this.apiUrl, data, {
-                headers: { 'Content-Type': 'multipart/form-data' }
+                headers: { 'Content-Type': 'multipart/form-data',
+                            'Content-Type': 'multipart/form-data' }
             }).then((response) => {
                 console.log("Dati ricevuti: ", response.data);
                 this.lista[0] = response.data;

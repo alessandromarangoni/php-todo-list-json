@@ -12,7 +12,7 @@
     } 
     elseif (isset($_POST['deleteIndex'])) {
     $index = $_POST['deleteIndex'];
-    $todolist[$index] = 'task eliminata';
+    $todolist[$index] = array('name' => 'task eliminata');
     file_put_contents("data.json", json_encode($todolist));
 
 }
