@@ -27,7 +27,8 @@
                         </div>
                         <div class="card-body">
                             <ul>
-                                <li id="list_custom" v-for="(items,i) in lista[0]" @click="deleteTask(i)">{{items}}
+                                <li id="list_custom" v-for="(items,i) in lista[0]" @click="deleteTask(i)">{{items.name}}
+                                {{items.done}}
                                 <!-- <button class="btn btn-danger m-2" @click="deleteTask(i)">remove</button> -->
                                 <button class="btn btn-warning m-2" :class="(index==i) ? 'text-white' : ''" >done</button>
                                 </li> 
