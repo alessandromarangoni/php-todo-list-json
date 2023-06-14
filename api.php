@@ -25,7 +25,7 @@
 
         }elseif (isset($_POST['deleteAll'])) {
         $todolist = [];
-        file_put_contents("dati.json", json_encode($todolist) );
+        file_put_contents("data.json", json_encode($todolist) );
         }
     $todoEncode= json_encode($todolist);
 

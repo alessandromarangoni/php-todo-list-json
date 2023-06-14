@@ -20,7 +20,6 @@ createApp({
         call(){
             axios.get(this.apiUrl).then((r) => {
                 this.lista[0] = r.data;
-                // console.log(this.lista[0].list[0].name)
                 // console.log(this.lista)
             })
         },
@@ -35,14 +34,15 @@ createApp({
         // gestisce la chiamata post
         sendTask(data){
             axios.post(this.apiUrl, data, {
-                headers: { 'Content-Type': 'multipart/form-data',
-                            'Content-Type': 'multipart/form-data' }
+                headers: { 'Content-Type': 'multipart/form-data'
+                        }
             }).then((response) => {
                 console.log("Dati ricevuti: ", response.data);
                 this.lista[0] = response.data;
                 this.aggiungi = "";
             });
         },
+        // trasforma un elemento in {'name'=>'task eliminata''done'=> null} e lo invia
         deleteTask(i) {
             const data = { deleteIndex : i };
             this.sendTask(data);
