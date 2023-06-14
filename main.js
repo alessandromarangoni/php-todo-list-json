@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             class:'text-white',
-            done:'non fatto',
+            done:'false',
             index:null,
             aggiungi:"",
             title: 'To Do List!',
@@ -28,7 +28,8 @@ createApp({
         addTask() {
             const data = {aggiungi: {
                             name : this.aggiungi,
-                            done : this.done}};
+                            done : this.done}
+                        };
             this.sendTask(data);
         },
         // gestisce la chiamata post
@@ -46,5 +47,13 @@ createApp({
             const data = { deleteIndex : i };
             this.sendTask(data);
         },
+        deleteAll(){
+            const data = {deleteAll:true};
+            this.sendTask(data);
+        },
+        toggleTask(i){
+            const data = {modifyAction : i};
+            this.sendTask(data);
+        }
     },
 }).mount('#app')
